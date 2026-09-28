@@ -1,9 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shalini Bansal</title>
+<!doctype html><html><head><meta charset="utf-8"><title>Shalini Bansal</title>
 <meta name="description" content="12 years at PayPal building systems that power millions of payments — now applying that depth to fintech, consumer tech, and AI product problems.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.shalinibansal.site/">
@@ -38,6 +33,7 @@
     --chart-orange: #c85a28;
     --chart-orange-soft: #F7E4D8;
     --chart-green: #1f8f5f;
+    --chart-green-soft: #DCF2E7;
     --chart-purple: #8046c2;
     --status-good: #0ca30c;
     --status-serious: #c85a28;
@@ -64,6 +60,7 @@
       --chart-orange: #E08454;
       --chart-orange-soft: #3A2419;
       --chart-green: #4ECB8E;
+      --chart-green-soft: #16302A;
       --chart-purple: #B48CE8;
       --status-good: #3fbf3f;
       --status-serious: #e08454;
@@ -90,6 +87,7 @@
     --chart-orange: #E08454;
     --chart-orange-soft: #3A2419;
     --chart-green: #4ECB8E;
+    --chart-green-soft: #16302A;
     --chart-purple: #B48CE8;
     --status-good: #3fbf3f;
     --status-serious: #e08454;
@@ -255,14 +253,33 @@
   @media (max-width:560px){.about-photo{width:84px; height:84px;}}
   .stat-intro{font-weight:400; color:var(--ink); font-size:15px; margin-bottom:10px;}
   .exp-summary{font-size:16px; color:var(--ink-soft); margin-top:16px; max-width:none;}
-  .exp-role{margin-block:24px; padding-bottom:22px; border-bottom:1px solid var(--line);}
-  .exp-role:last-of-type{border-bottom:none;}
-  .exp-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:10px;}
-  .exp-title{font-weight:700; font-size:16px; color:var(--ink); font-family:"Public Sans",sans-serif;}
-  .exp-dates{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-mute); white-space:nowrap;}
-  .exp-sub{font-style:italic; color:var(--ink-mute); font-size:14px; margin:4px 0 12px; font-family:"Fraunces",serif;}
-  .exp-bullets{margin:0; padding-left:20px;}
-  .exp-bullets li{color:var(--ink-soft); font-size:15px; line-height:1.55; margin-bottom:8px;}
+  .exp-role{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:16px;
+    padding:clamp(22px,3.5vw,32px); margin-block:18px;
+    border-left:4px solid var(--tile-accent, var(--accent));
+  }
+  .exp-head{display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:2px;}
+  .exp-head-left{display:flex; align-items:flex-start; gap:14px; min-width:0;}
+  .exp-icon{
+    display:flex; align-items:center; justify-content:center; flex:none;
+    width:40px; height:40px; border-radius:10px; margin-top:2px;
+    background:var(--tile-accent-soft, var(--accent-soft)); color:var(--tile-accent, var(--accent-ink));
+  }
+  .exp-title{font-weight:700; font-size:18px; color:var(--ink); font-family:"Public Sans",sans-serif; line-height:1.3;}
+  .exp-role-name{display:block; font-size:13px; font-weight:600; color:var(--tile-accent, var(--accent-ink)); font-family:"IBM Plex Mono",monospace; letter-spacing:.03em; text-transform:uppercase; margin-bottom:3px;}
+  .exp-dates{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap;
+    background:var(--paper-sunken); border:1px solid var(--line); padding:5px 12px; border-radius:20px; flex:none;
+  }
+  .exp-sub{font-style:italic; color:var(--ink-mute); font-size:14.5px; margin:10px 0 16px; font-family:"Fraunces",serif; padding-left:54px;}
+  .exp-bullets{margin:0; padding-left:54px; list-style:none; display:flex; flex-direction:column; gap:11px;}
+  .exp-bullets li{color:var(--ink-soft); font-size:14.5px; line-height:1.55; padding-left:20px; position:relative;}
+  .exp-bullets li::before{content:""; position:absolute; left:0; top:7px; width:7px; height:7px; border-radius:50%; background:var(--tile-accent, var(--accent));}
+  .exp-bullets li strong{color:var(--ink); font-weight:700;}
+  @media (max-width:640px){
+    .exp-sub, .exp-bullets{padding-left:0;}
+  }
+  .exp-skill-icon{width:20px; height:20px; border-radius:6px; background:var(--accent-soft); color:var(--accent-ink); display:inline-flex; align-items:center; justify-content:center; flex:none; margin-bottom:8px;}
   .wc-strategies{display:flex; flex-direction:column; gap:10px; margin:4px 0 0;}
   .ws-item{font-size:14.5px; color:var(--ink-soft); padding-left:14px; border-left:2px solid var(--line);}
   .ws-item strong{color:var(--ink); font-weight:700;}
@@ -277,9 +294,27 @@
   .cs-header{padding-block:20px 30px;}
   .cs-header .tag{margin-bottom:16px;}
   .cs-header h1{font-family:"Public Sans",sans-serif; font-weight:800; font-size:clamp(24px,3.6vw,38px); max-width:20ch; letter-spacing:-.01em;}
+  .contact-cta{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:20px;
+    padding:clamp(36px,5.5vw,56px); text-align:center; position:relative; overflow:hidden;
+  }
+  .contact-cta::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--accent), var(--chart-blue), var(--chart-green));
+  }
+  .contact-icon{
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+    width:52px; height:52px; border-radius:14px; background:var(--accent-soft); color:var(--accent-ink);
+  }
+  .contact-cta .tag{margin-bottom:14px;}
+  .contact-cta h2{font-size:clamp(24px,3.4vw,32px); margin-bottom:14px;}
+  .contact-cta p{color:var(--ink-soft); font-size:17px; max-width:52ch; margin:0 auto; line-height:1.6;}
+  .contact-cta .cta-row{justify-content:center; margin-top:28px;}
   .cs-header .dek{font-size:19px; color:var(--ink-soft); margin-top:16px; max-width:56ch;}
   #view-retry p, #view-decoder p, #view-deprecation p,
   #view-retry .dek, #view-decoder .dek, #view-deprecation .dek, #view-experience .dek{max-width:none;}
+  #view-experience .dek{font-family:"Public Sans",sans-serif; font-style:normal; font-weight:600;}
+  #view-experience .cs-header{padding-block:20px 10px;}
   .cs-meta{display:flex; flex-wrap:wrap; gap:18px; margin-top:20px; font-size:13px; color:var(--ink-mute); font-family:"IBM Plex Mono",monospace;}
 
   .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-block:8px 6px;}
@@ -333,6 +368,12 @@
   .decision-card ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px;}
   .decision-card li{position:relative; padding-left:17px; font-size:13.5px; color:var(--ink-soft); line-height:1.4;}
   .decision-card li::before{content:""; position:absolute; left:0; top:6px; width:7px; height:7px; border-radius:50%; background:var(--tile-accent, var(--accent));}
+  .skill-chip-row{display:flex; flex-wrap:wrap; gap:7px; margin-top:2px;}
+  .skill-chip{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; padding:5px 10px; border-radius:20px;
+    background:var(--tile-accent-soft, var(--paper-raised)); border:1px solid var(--line); color:var(--tile-accent, var(--ink-soft));
+  }
+  .skills-head h2{font-size:clamp(22px,3vw,28px);}
 
   .taxonomy-strip{display:flex; flex-wrap:wrap; gap:8px; margin-block:24px;}
   .tx-chip{display:flex; align-items:center; gap:7px; font-size:12.5px; padding:7px 11px; border-radius:20px; border:1px solid var(--line); background:var(--paper-raised); color:var(--ink-soft);}
@@ -402,10 +443,7 @@
     .concentration-bar{flex-direction:column; height:auto;}
     .conc-seg{padding:9px 10px; justify-content:flex-start; font-size:11.5px; white-space:normal;}
   }
-</style>
-</head>
-<body>
-
+</style></head><body>
 
 <nav class="topbar">
   <div class="wrap">
@@ -414,6 +452,7 @@
       <a href="#about" data-nav data-target="home">About</a>
       <a href="#work" data-nav data-target="home">Projects</a>
       <a href="#experience" data-nav data-target="experience">Work Experience</a>
+      <a href="#contact" data-nav data-target="home">Contact</a>
     </div>
   </div>
 </nav>
@@ -444,14 +483,9 @@
       <div class="section-head">
         <h2 class="about-title">About me</h2>
       </div>
-      <p class="about-copy">At PayPal, I worked across Billing Agreements, Subscriptions, and Checkout &mdash; where decisions directly shaped conversion, revenue, and customer experience. That work translated into measurable outcomes:</p>
-      <div class="stat-row icon-stats">
-        <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span><span class="stat-text"><span class="num">10%</span><span class="label">checkout conversion lift</span></span></div>
-        <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="stat-text"><span class="num">10x</span><span class="label">fewer failed-payment incidents</span></span></div>
-        <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></span><span class="stat-text"><span class="num">40M+</span><span class="label">daily API calls migrated, zero downtime</span></span></div>
-      </div>
-      <p class="about-copy">The projects in this portfolio grew out of problems I experienced firsthand while working on PayPal&rsquo;s Checkout team: recovering failed payments, decoding payment declines, and safely sunsetting APIs that merchants still depend on. I approached each as a product problem&mdash;from defining the problem and understanding users to shaping the strategy, evaluating trade-offs, designing the solution, and defining how success would be measured.</p>
-      <p class="about-copy">My portfolio today is more payments-focused &mdash; that&rsquo;s where I&rsquo;ve built depth, but not where I intend to stop. I&rsquo;m just as interested in consumer behavior, trust, and decision-making, wherever they show up.</p>
+      <p class="about-copy">I&rsquo;ve spent my career at PayPal building payment products across Checkout, Subscriptions, and Billing Agreements &mdash; work that sits right at the intersection of technology, customer behavior, and business. Building some of these products from the ground up, and rethinking others at scale, taught me how customers behave, how to use data to make better decisions, and what it takes to build for millions of users.</p>
+      <p class="about-copy">But the part I&rsquo;ve come to enjoy most is everything around the technology: understanding the problem, making sense of ambiguity, bringing different perspectives together, and figuring out what is actually worth building. The projects in this portfolio grew out of problems I encountered firsthand on PayPal&rsquo;s Checkout team, and reflect how I approach them&mdash;from understanding the customer and business context to making trade-offs, shaping the solution, and thinking about what success looks like.</p>
+      <p class="about-copy">Payments is where I&rsquo;ve built my depth, but it&rsquo;s not where my curiosity ends. I&rsquo;m drawn to products where people make decisions, build trust, and change their behavior&mdash;and I&rsquo;m excited to bring what I&rsquo;ve learned in payments to those problems.</p>
       <div class="cta-row">
         <a class="btn primary" href="#experience" data-nav data-target="experience">See full work experience →</a>
       </div>
@@ -545,7 +579,17 @@
       </div>
     </section>
 
-    <footer class="contact">
+    <footer class="contact" id="contact">
+      <section class="contact-cta">
+        <div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+        <span class="tag">Get in touch</span>
+        <h2>Let&rsquo;s talk</h2>
+        <p>Always up for a good conversation about product, payments, or anything in between. Reach out if you&rsquo;re hiring, building something interesting, or just want to compare notes.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.linkedin.com/in/shalini-bansal-627608109/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px; vertical-align:-2px;"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Connect on LinkedIn ↗</a>
+          <a class="btn ghost" href="mailto:shalinibansaljpr@gmail.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; vertical-align:-2px;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 8.97 6.28a2 2 0 0 0 2.06 0L22 7"></path></svg>Send a message</a>
+        </div>
+      </section>
       <p class="footer-note">&copy; Shalini Bansal &middot; Selected work, evolving over time.</p>
     </footer>
   </div>
@@ -958,84 +1002,106 @@
     <a class="crumb" href="#home" data-nav data-target="home">← All work</a>
     <header class="cs-header">
       <span class="tag">Professional Experience</span>
-      <h1>Work Experience</h1>
-      <p class="dek">Product-oriented technology leader with 12 years of experience building and scaling customer-facing products, with deep expertise in payments and checkout.</p>
+      <p class="dek">At PayPal, I&rsquo;ve worked on products where customer experience, payment reliability, and scale all matter. The work below highlights three outcomes I&rsquo;m particularly proud of: improving checkout conversion, making payments more reliable, and leading large-scale change without disrupting customers.</p>
     </header>
 
-    <p class="exp-summary">Skilled at translating ambiguous business and technical problems into concrete PRDs, roadmaps, and experiments. At PayPal, drove product ownership across key Billing Agreements, Subscriptions, and Checkout initiatives &mdash; delivering a 10% lift in checkout conversion through native checkout screens, improving payment reliability 10x, and independently initiating a zero-downtime migration of 40M+ daily API calls.</p>
-
-    <div class="section-head" style="margin-top:36px;">
-      <h2 style="font-size:20px;">Professional Experience</h2>
+    <div class="stat-row icon-stats" style="margin-top:8px;">
+      <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span><span class="stat-text"><span class="num">10%</span><span class="label">mobile checkout conversion lift</span></span></div>
+      <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="stat-text"><span class="num">10x</span><span class="label">fewer failed-payment incidents</span></span></div>
+      <div class="stat-tile"><span class="stat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></span><span class="stat-text"><span class="num">40M+</span><span class="label">daily API calls migrated, zero downtime</span></span></div>
     </div>
 
-    <article class="exp-role">
+    <article class="exp-role" style="--tile-accent:var(--accent); --tile-accent-soft:var(--accent-soft); margin-top:40px;">
       <div class="exp-head">
-        <span class="exp-title">PayPal &mdash; Staff Software Engineer (De Facto Product Manager)</span>
+        <div class="exp-head-left">
+          <span class="exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></span>
+          <span class="exp-title"><span class="exp-role-name">Checkout &middot; Billing Agreements &amp; Subscriptions</span>PayPal &mdash; Staff Software Engineer (De Facto Product Manager)</span>
+        </div>
         <span class="exp-dates">Sep 2021 &ndash; Nov 2025</span>
       </div>
-      <p class="exp-sub">Checkout &mdash; Billing Agreements &amp; Subscriptions &middot; Bengaluru, India</p>
+      <p class="exp-sub">Bengaluru, India</p>
       <ul class="exp-bullets">
-        <li>Authored PRD and roadmap for native Checkout screens, designing the experimentation framework that isolated conversion impact and delivered a 10% lift in checkout conversion.</li>
-        <li>Diagnosed recurring payment reliability gaps during database maintenance and led a cache-bridge solution that lifted Billing Agreement reliability from 99.99% to 99.999%, cutting failed-payment incidents 10x.</li>
-        <li>Self-initiated the deprecation of a legacy monolith, negotiating migration timelines with 10+ upstream teams and sequencing cutover by merchant risk; migrated 40M+ daily API calls with zero downtime.</li>
-        <li>Drove the deprecation of a subscriptions API used by ~200 merchants, evaluating replacement paths across merchant effort and long-term value, and leading merchant segmentation and migration communications with no reported complaints or escalations.</li>
-        <li>Owned experimentation and ramp strategy for native-app checkout authentication, contributing to a 40% reduction in checkout drop-off; led funnel analysis and cross-team instrumentation across five organizations to identify and resolve re-authentication friction.</li>
+        <li><strong>10% lift in mobile checkout conversion</strong> &mdash; shaped the strategy and owned the PRD and roadmap for native checkout screens, with experiments designed to measure their impact on mobile flows.</li>
+        <li>Spotted a recurring reliability gap during planned database maintenance that was silently failing customer payments, and drove the fix that lifted Billing Agreement reliability from 99.99% to 99.999% &mdash; <strong>cutting failed-payment incidents 10x</strong>.</li>
+        <li>Self-initiated the deprecation of a legacy monolith, negotiating migration timelines with 10+ upstream teams and sequencing the cutover by merchant risk &mdash; <strong>migrating 40M+ daily API calls with zero downtime</strong>.</li>
+        <li>Drove the deprecation of a subscriptions API used by ~200 merchants, weighing replacement paths against merchant effort and long-term value, then led the migration with <strong>zero reported complaints or escalations</strong>.</li>
       </ul>
     </article>
 
-    <article class="exp-role">
+    <article class="exp-role" style="--tile-accent:var(--chart-blue); --tile-accent-soft:var(--chart-blue-soft);">
       <div class="exp-head">
-        <span class="exp-title">PayPal &mdash; Software Engineer 3</span>
+        <div class="exp-head-left">
+          <span class="exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="1"></rect><rect x="16" y="3" width="5" height="5" rx="1"></rect><rect x="3" y="16" width="5" height="5" rx="1"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path></svg></span>
+          <span class="exp-title"><span class="exp-role-name">QR Payments</span>PayPal &mdash; Software Engineer 3</span>
+        </div>
         <span class="exp-dates">Jan 2020 &ndash; Sep 2021</span>
       </div>
-      <p class="exp-sub">QR Payments &middot; San Jose, USA</p>
+      <p class="exp-sub">San Jose, USA</p>
       <ul class="exp-bullets">
-        <li>Shaped product scope and sequencing for PayPal QR payments, assessing technical feasibility and effort to translate product objectives into executable roadmap commitments.</li>
-        <li>Built seller-side risk policy checks into QR payment acceptance against Risk-team-defined policy, balancing fraud controls with checkout friction for legitimate sellers.</li>
-        <li>Enabled Venmo-to-PayPal QR payments, expanding the payer network available to PayPal merchant acceptance.</li>
+        <li>Shaped the product scope and sequencing for PayPal QR payments, assessing technical feasibility and translating product objectives into a roadmap engineering could commit to.</li>
+        <li>Defined seller-side risk policy for QR payment acceptance, balancing fraud controls against checkout friction for legitimate sellers.</li>
+        <li>Enabled Venmo-to-PayPal QR payments, <strong>expanding the payer network</strong> available to PayPal merchant acceptance.</li>
       </ul>
     </article>
 
-    <article class="exp-role">
+    <article class="exp-role" style="--tile-accent:var(--chart-green); --tile-accent-soft:var(--chart-green-soft);">
       <div class="exp-head">
-        <span class="exp-title">PayPal &mdash; Software Engineer 1&ndash;2</span>
+        <div class="exp-head-left">
+          <span class="exp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></span>
+          <span class="exp-title"><span class="exp-role-name">Incentives</span>PayPal &mdash; Software Engineer 1&ndash;2</span>
+        </div>
         <span class="exp-dates">Jul 2014 &ndash; Jan 2020</span>
       </div>
       <p class="exp-sub">Bengaluru / San Jose</p>
       <ul class="exp-bullets">
-        <li>Built a batch processing system issuing targeted offers to millions of users via high-volume file uploads.</li>
-        <li>Owned the migration of eBay Gift Cards from PayPal to eBay systems during the post-split separation, coordinating across teams to avoid customer-facing disruption.</li>
+        <li>Built and shipped a batch-processing system that issued targeted offers via high-volume file uploads, reaching <strong>millions of users</strong>.</li>
+        <li>Owned the migration of eBay Gift Cards from PayPal to eBay systems during the post-split separation, coordinating across teams to <strong>avoid customer-facing disruption</strong>.</li>
       </ul>
     </article>
 
-    <div class="section-head" style="margin-top:36px;">
-      <h2 style="font-size:20px;">Skills</h2>
+    <div class="section-head skills-head" style="margin-top:48px;">
+      <h2>Skills</h2>
+      <div class="section-subcap">What I bring to a product team</div>
     </div>
     <div class="decision-grid">
-      <div class="decision-card">
+      <div class="decision-card" style="--tile-accent:var(--accent); --tile-accent-soft:var(--accent-soft);">
+        <span class="exp-skill-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg></span>
         <h4>Product</h4>
-        <p>PRD authorship, roadmap ownership, experimentation &amp; A/B testing, funnel analysis, cross-functional negotiation, merchant migration &amp; communications, trade-off framing.</p>
+        <div class="skill-chip-row">
+          <span class="skill-chip">PRD authorship</span>
+          <span class="skill-chip">Roadmap ownership</span>
+          <span class="skill-chip">A/B testing</span>
+          <span class="skill-chip">Funnel analysis</span>
+          <span class="skill-chip">Cross-functional negotiation</span>
+          <span class="skill-chip">Merchant comms</span>
+          <span class="skill-chip">Trade-off framing</span>
+        </div>
       </div>
-      <div class="decision-card">
+      <div class="decision-card" style="--tile-accent:var(--chart-blue); --tile-accent-soft:var(--chart-blue-soft);">
+        <span class="exp-skill-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>
         <h4>Domain</h4>
-        <p>Payments, recurring billing &amp; subscriptions, checkout, QR payments, fraud &amp; risk, merchant platforms.</p>
+        <div class="skill-chip-row">
+          <span class="skill-chip">Payments</span>
+          <span class="skill-chip">Recurring billing &amp; subscriptions</span>
+          <span class="skill-chip">Checkout</span>
+          <span class="skill-chip">QR payments</span>
+          <span class="skill-chip">Fraud &amp; risk</span>
+          <span class="skill-chip">Merchant platforms</span>
+        </div>
       </div>
-      <div class="decision-card">
+      <div class="decision-card" style="--tile-accent:var(--chart-green); --tile-accent-soft:var(--chart-green-soft);">
+        <span class="exp-skill-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span>
         <h4>Technical</h4>
-        <p>Distributed systems, microservices architecture, API design &amp; deprecation, system reliability, SQL, Java.</p>
+        <div class="skill-chip-row">
+          <span class="skill-chip">Distributed systems</span>
+          <span class="skill-chip">Microservices</span>
+          <span class="skill-chip">API design &amp; deprecation</span>
+          <span class="skill-chip">System reliability</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Java</span>
+        </div>
       </div>
     </div>
-
-    <div class="section-head" style="margin-top:36px;">
-      <h2 style="font-size:20px;">Education</h2>
-    </div>
-    <article class="exp-role">
-      <div class="exp-head">
-        <span class="exp-title">B.Tech, Information Technology &mdash; Vellore Institute of Technology</span>
-        <span class="exp-dates">2010 &ndash; 2014</span>
-      </div>
-      <p class="exp-sub">GPA: 9.10 / 10 &middot; Vellore, India</p>
-    </article>
 
     <div class="next-nav">
       <a href="#home" data-nav data-target="home">
@@ -1094,6 +1160,4 @@
   }
 })();
 </script>
-
-</body>
-</html>
+</body></html>
