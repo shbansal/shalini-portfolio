@@ -199,7 +199,15 @@
     margin-inline:-20px; padding-inline:20px;
   }
   nav.topbar .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:14px;}
-  .brand{font-family:"Fraunces", Georgia, serif; font-weight:600; font-size:17px; text-decoration:none; color:var(--ink); white-space:nowrap;}
+  .topbar{position:sticky; top:12px; z-index:200; margin:12px auto 18px; padding:8px 10px; border:1px solid color-mix(in srgb,var(--line) 86%,transparent); border-radius:14px; background:color-mix(in srgb,var(--paper) 92%,transparent); box-shadow:0 8px 24px rgba(20,23,28,.06); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);}
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .topbar .navlinks{display:flex; align-items:center; gap:4px;}
+  .topbar .navlinks a{padding:8px 11px; border-radius:9px; color:var(--ink-soft); text-decoration:none; font-size:13px; font-weight:600; transition:background .16s ease,color .16s ease,transform .16s ease;}
+  .topbar .navlinks a:hover{background:var(--paper-raised); color:var(--ink); transform:translateY(-1px);}
+  .topbar .navlinks a.active{background:var(--accent-soft); color:var(--accent-ink);}
+  .brand{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:10px; background:var(--ink); color:var(--paper)!important; font-family:"Public Sans",sans-serif; font-weight:800; font-size:11px; letter-spacing:.04em; text-decoration:none; white-space:nowrap;}
+  .brand::after{content:"SB";}
+  @media(max-width:600px){.topbar{top:8px; margin:8px auto 14px;}.topbar .navlinks{gap:1px;}.topbar .navlinks a{padding:7px 8px;font-size:12px;}.topbar .navlinks a[href="#experience"]{display:none;}}
   .navlinks{display:flex; gap:20px; overflow-x:auto; scrollbar-width:none;}
   .navlinks::-webkit-scrollbar{display:none;}
   .navlinks a{
@@ -209,66 +217,6 @@
   }
   .navlinks a:hover{color:var(--ink);}
   .navlinks a.active{color:var(--accent-ink); border-color:var(--accent);}
-
-
-  /* ---------- polished professional header ---------- */
-  nav.topbar{
-    background:rgba(255,255,255,.86);
-    border-bottom:1px solid color-mix(in srgb,var(--line) 82%, transparent);
-    box-shadow:0 4px 18px rgba(20,23,28,.045);
-  }
-  nav.topbar .wrap{
-    min-height:58px; padding-block:10px;
-  }
-  .brand{
-    display:inline-flex; align-items:center; gap:10px;
-    font-family:"Public Sans", ui-sans-serif, system-ui, sans-serif;
-    font-size:13px; font-weight:700; letter-spacing:.02em;
-  }
-  .brand::before{
-    content:"SB"; display:grid; place-items:center;
-    width:30px; height:30px; border-radius:9px;
-    background:var(--ink); color:var(--paper);
-    font-family:"IBM Plex Mono", monospace; font-size:10px; font-weight:600;
-    letter-spacing:.02em; box-shadow:0 4px 10px rgba(20,23,28,.12);
-  }
-  .navlinks{
-    align-items:center; gap:5px; padding:4px;
-    border:1px solid var(--line); border-radius:999px;
-    background:color-mix(in srgb,var(--paper) 88%, var(--accent-soft));
-  }
-  .navlinks a{
-    border:0 !important; border-radius:999px; padding:8px 12px;
-    font-family:"Public Sans", ui-sans-serif, system-ui, sans-serif;
-    font-size:12px; font-weight:600; letter-spacing:0; text-transform:none;
-    color:var(--ink-soft); transition:background .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease;
-  }
-  .navlinks a:hover{
-    color:var(--ink); background:var(--paper); box-shadow:0 2px 8px rgba(20,23,28,.07);
-  }
-  .navlinks a.active{
-    color:var(--ink); background:var(--paper);
-    box-shadow:0 2px 8px rgba(20,23,28,.09);
-  }
-  #view-home .hero{
-    padding-top:clamp(54px,7vw,78px);
-  }
-  #view-home .hero-copy{max-width:690px;}
-  #view-home .hero h1{
-    font-size:clamp(38px,6.2vw,62px);
-    letter-spacing:-.035em;
-  }
-  #view-home .availability-tag{
-    display:inline-flex; align-items:center; gap:7px;
-    border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));
-    box-shadow:0 2px 8px rgba(20,23,28,.04);
-  }
-  @media (max-width:680px){
-    nav.topbar .wrap{min-height:52px;}
-    .navlinks{gap:2px; max-width:calc(100vw - 70px);}
-    .navlinks a{padding:7px 9px;}
-    .brand::before{width:28px;height:28px;}
-  }
 
   /* ---------- views ---------- */
   .view{display:none;}
@@ -1063,7 +1011,7 @@
           <div class="cta-row">
             <a class="btn primary" href="https://www.linkedin.com/in/shalini-bansal-627608109/" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px; vertical-align:-2px;"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>LinkedIn ↗</a>
             <a class="btn ghost" href="Shalini_Bansal_Resume.pdf" download>Download resume ↓</a>
-            <a class="btn ghost" href="#work" data-nav data-target="home">Explore independent work ↓</a>
+            <a class="btn ghost" href="#work" data-nav data-target="home" data-home-scroll="work">Explore independent work ↓</a>
           </div>
         </div>
       </div>
@@ -1897,24 +1845,22 @@
 <script>
 (function(){
   var views = ['home','retry','decoder','deprecation','experience'];
+  var pendingHomeSection = null;
   function route(){
     var hash = (location.hash || '#home').slice(1);
     var target = 'home';
     var homeAnchor = null;
 
-    /*
-     * Hashes that represent sections on the home page must keep the home
-     * view active. Case-study hashes switch views. #home is always the
-     * canonical top-of-page state, so returning to it restores the hero.
-     */
     if (hash === 'retry' || hash === 'decoder' || hash === 'deprecation' || hash === 'experience') {
       target = hash;
     } else if (hash === 'about' || hash === 'work' || hash === 'contact') {
       target = 'home';
-      /* Header links to home sections should always restore the full home page
-         from the top. This prevents returning from a case-study view with the
-         hero already scrolled out of view. */
-      homeAnchor = null;
+      /* The header's home-section links intentionally return to the full home page.
+         The hero CTA can opt into scrolling to a specific section via data-home-scroll. */
+      if (pendingHomeSection) {
+        homeAnchor = document.getElementById(pendingHomeSection);
+      }
+      pendingHomeSection = null;
     }
 
     views.forEach(function(v){
@@ -1927,16 +1873,35 @@
     });
 
     if (target === 'home' && homeAnchor) {
-      /* Wait one frame so the home view is displayed before measuring/scrolling. */
-      requestAnimationFrame(function(){ homeAnchor.scrollIntoView({block:'start'}); });
+      requestAnimationFrame(function(){
+        homeAnchor.scrollIntoView({block:'start', behavior:'smooth'});
+      });
     } else {
-      /* Every view route, and explicit #home, starts at the top. */
       window.scrollTo(0,0);
     }
   }
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.addEventListener('hashchange', route);
   route();
+
+  /* Home-section CTA routing: set the intended section before the hashchange fires. */
+  document.addEventListener('click', function(e){
+    var nav = e.target.closest && e.target.closest('[data-nav][data-home-scroll]');
+    if (nav) pendingHomeSection = nav.getAttribute('data-home-scroll');
+
+    /* Native <details> menus otherwise remain open after a download click. */
+    var menuLink = e.target.closest && e.target.closest('.split-menu a');
+    if (menuLink) {
+      var details = menuLink.closest('details');
+      if (details) details.removeAttribute('open');
+    } else if (!e.target.closest || !e.target.closest('.split-btn')) {
+      document.querySelectorAll('.split-btn details[open]').forEach(function(d){ d.removeAttribute('open'); });
+    }
+  });
+
+  window.addEventListener('hashchange', function(){
+    document.querySelectorAll('.split-btn details[open]').forEach(function(d){ d.removeAttribute('open'); });
+  });
 
   var heroCopyBtn = document.getElementById('hero-copy-email');
   if (heroCopyBtn){
